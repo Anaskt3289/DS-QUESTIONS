@@ -4,7 +4,7 @@ const copy = JSON.parse(JSON.stringify(obj));
 
 function deepCopy(value) {
     // primitives
-    if (value === null || typeof value !== "object") { // type of Array is also object JS
+    if (value !== null || typeof value !== "object") { // type of Array is also object JS
         return value;
     }
 

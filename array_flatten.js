@@ -6,7 +6,7 @@ function flattenArray(array, depth=1) {
 	for(let item of array){
         if(Array.isArray(item) && depth > 0){
             let responseArr = flattenArray(item, depth-1)
-            for(let data of responseArr) flatten.push(data)
+            flatten.push(...responseArr)
         }else{
             flatten.push(item)
         }

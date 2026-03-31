@@ -6,6 +6,7 @@ s = '[{] - false
 */
 
 const validateString = (s) => {
+    const paranthesis_set = new Set(["(",")","{","}","[","]"])
     const stack = []
     let map = {
         ')' : '(',
@@ -13,12 +14,13 @@ const validateString = (s) => {
         '}' : '{'
     }
     for(char of s){
-        
-        if(map[char]){  
-            let last_char = stack.pop()
-            if(last_char !== map[char]) return false;
-        }else{   
-            stack.push(char)
+        if(paranthesis_set.has(char)){
+            if(map[char]){  
+                let last_char = stack.pop()
+                if(last_char !== map[char]) return false;
+            }else{   
+                stack.push(char)
+            }
         }
     }
     return stack.length === 0 ;

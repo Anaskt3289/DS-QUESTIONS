@@ -37,3 +37,22 @@ const findFirstNonRepeatingChar = (str)=>{
 }
 
 console.log("Result with first non repeatative charecter ::", findFirstNonRepeatingChar("aabcddeeffffg"));
+
+
+// remove duplicates from sorted array
+function removeDuplicatesFromSortedArray(nums) {
+  if (nums.length === 0) return 0;
+
+  let i = 0;
+
+  for (let j = 1; j < nums.length; j++) {
+    if (nums[j] !== nums[i]) {
+      i++;
+      nums[i] = nums[j];
+    }
+  }
+
+  nums.length =  i + 1;
+  return nums;
+}
+console.log(removeDuplicatesFromSortedArray([1,1,2,2,3]));
